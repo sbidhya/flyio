@@ -4,6 +4,7 @@ bazel-*
 maelstrom/
 store/
 MODULE.bazel.lock
+cecho/bazel-*
 
 # Allow the 'cecho' directory and all of its contents.
 !/cecho/
