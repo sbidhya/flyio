@@ -1,0 +1,13 @@
+# Ignore everything by default.
+.*
+bazel-*
+maelstrom/
+store/
+MODULE.bazel.lock
+
+# Allow the 'cecho' directory and all of its contents.
+!/cecho/
+!/cecho/**
+
+# Do not ignore the .gitignore file itself.
+!/.gitignore
