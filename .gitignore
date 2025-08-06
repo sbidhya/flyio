@@ -9,6 +9,8 @@ cecho/bazel-*
 # Allow the 'cecho' directory and all of its contents.
 !/cecho/
 !/cecho/**
+!/uuid/
+!/uuid/**
 
 # Do not ignore the .gitignore file itself.
 !/.gitignore

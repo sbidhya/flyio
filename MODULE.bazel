@@ -5,5 +5,28 @@
 # For more details, please check https://github.com/bazelbuild/bazel/issues/18958
 ###############################################################################
 '''Contains all the dependencies'''
+module(name = "uuid", version = "0.1.0")
+bazel_dep(name = "googleapis-rules-registry", version = "1.0.0")
 bazel_dep(name = "jsoncpp", version = "1.9.6")
 bazel_dep(name = "glog", version = "0.7.1")
+bazel_dep(name = "rules_proto", version = "7.1.0")
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
+
+bazel_dep(name = "rules_proto_grpc_cpp", version = "5.5.0")
+bazel_dep(name = "toolchains_protoc", version = "0.4.3")
+bazel_dep(name = "abseil-cpp", version = "20250512.1")
+bazel_dep(name = "grpc", version = "1.74.0")
+bazel_dep(name = "protobuf", version = "31.1")
+
+
+protoc = use_extension("@toolchains_protoc//protoc:extensions.bzl", "protoc")
+protoc.toolchain(
+    google_protobuf = "com_google_protobuf",
+    version = "v31.1",
+)
+bazel_dep(name = "platforms", version = "1.0.0")
+bazel_dep(name = "rules_cc", version = "0.1.4")
+
+register_toolchains(
+    "//toolchain:cc_toolchain_macos_aarch64"
+)

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package flyio.uuid;
+
+// The UUID Generator service definition.
+service UuidGenerator {
+  // Generates a new UUID range.
+  rpc Generate(UuidRequestProto) returns (UuidResponseProto) {}
+}
+
+// UuidRequest reprents a request from node_id
+// to generate count number of UUIDS.
+message UuidRequestProto {
+  string node_id = 1;
+  int64 count = 2;
+}
+
+// UuidResponse returns that the node_id can use
+// count number of UUIDS starting from start_uuid.
+message UuidResponseProto {
+  int64 start_uuid = 1;
+}
