@@ -20,7 +20,7 @@ int main() {
     flyio::uuid::UuidResponseProto reply;
     // ::grpc::Status status = stub->Generate(&context, request, &reply);
     stub->Generate(&context, request, &reply);
-    // can crash  if staus if not okay in the above call.
+    // can crash if status is not okay in the above call.
     return reply.start_uuid();
     };
 
