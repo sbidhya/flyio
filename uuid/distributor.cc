@@ -2,6 +2,7 @@
 #include <grpcpp/grpcpp.h>
 #include "uuid/uuid.grpc.pb.h"
 #include "json/json.h"
+#include <assert.h>
 
 static int reply_msg_id = 0;
 
@@ -18,9 +19,8 @@ int main() {
     request.set_node_id(node_id);
     request.set_count(request_uuid_count);
     flyio::uuid::UuidResponseProto reply;
-    // ::grpc::Status status = stub->Generate(&context, request, &reply);
-    stub->Generate(&context, request, &reply);
-    // can crash if status is not okay in the above call.
+    ::grpc::Status status = stub->Generate(&context, request, &reply);
+    ABSL_CHECK(status.ok()) << status.error_message();
     return reply.start_uuid();
     };
 
